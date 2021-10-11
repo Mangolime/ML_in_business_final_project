@@ -1,23 +1,35 @@
 # python-flask-docker
-Итоговый проект (пример) курса "Машинное обучение в бизнесе"
+Итоговый проект курса "Машинное обучение в бизнесе"
 
 Стек:
 
 ML: sklearn, pandas, numpy
 API: flask
-Данные: с kaggle - https://www.kaggle.com/shivamb/real-or-fake-fake-jobposting-prediction
+Данные: с kaggle - https://archive.ics.uci.edu/ml/datasets/Adult
 
-Задача: предсказать по описанию вакансии является ли она фейком или нет (поле fraudulent). Бинарная классификация
+Задача:  По таким признакам как возраст, образование, пол и т. д., известным о человеке, предсказывать уровень дохода - больше или меньше чем 50 тыс.
 
 Используемые признаки:
 
-- description (text)
-- company_profile (text)
-- benefits (text)
+ - age (int64)
+ - workclass (object)
+ - fnlwgt (int64)
+ - education (object)
+ - education-num (int64)
+ - marital-status (object)
+ - occupation (object)
+ - relationship (object)
+ - race (object)
+ - sex (object)
+ - capital-gain (int64)
+ - capital-loss (int64)
+ - hours-per-week (int64)
+ - native-country (object)
+ 
 
-Преобразования признаков: tfidf
+Преобразования признаков: OneHotEncoder для категориальных признаков
 
-Модель: logreg
+Модель: RandomForestClassifier
 
 ### Клонируем репозиторий и создаем образ
 ```
