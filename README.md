@@ -32,9 +32,9 @@ API: flask
 
 ### Клонируем репозиторий и создаем образ
 ```
-$ git clone https://github.com/fimochka-sudo/GB_docker_flask_example.git
-$ cd GB_docker_flask_example
-$ docker build -t fimochka/gb_docker_flask_example .
+$ git clone https://github.com/Mangolime/ML_in_business_final_project.git
+$ cd Mangolime/ML_in_business_final_project
+$ docker build -t Mangolime/ML_in_business_final_project .
 ```
 
 ### Запускаем контейнер
