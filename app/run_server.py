@@ -31,7 +31,7 @@ def load_model(model_path):
 		model = dill.load(f)
 	print(model)
 
-modelpath = "/app/app/models/logreg_pipeline.dill"
+modelpath = "/app/app/models/rf_pipeline.dill"
 load_model(modelpath)
 
 @app.route("/", methods=["GET"])
@@ -47,21 +47,59 @@ def predict():
 	# ensure an image was properly uploaded to our endpoint
 	if flask.request.method == "POST":
 
-		description, company_profile, benefits = "", "", ""
+		age, workclass, fnlwgt, education, education-num, marital-status, occupation, relationship, race, sex, capital-gain, capital-loss, 
+		hours-per-week, native-country = "", "", "", "", "", "", "", "", "", "", "", "", "", ""
 		request_json = flask.request.get_json()
-		if request_json["description"]:
-			description = request_json['description']
+		if request_json["age"]:
+			description = request_json['age']
 
-		if request_json["company_profile"]:
-			company_profile = request_json['company_profile']
+		if request_json["workclass"]:
+			company_profile = request_json['workclass']
 
-		if request_json["benefits"]:
-			benefits = request_json['benefits']
-		logger.info(f'{dt} Data: description={description}, company_profile={company_profile}, benefits={benefits}')
+		if request_json["fnlwgt"]:
+			benefits = request_json['fnlwgt']
+			
+		if request_json["education"]:
+			benefits = request_json['education']
+			
+		if request_json["education-num"]:
+			benefits = request_json['education-num']
+			
+		if request_json["marital-status"]:
+			benefits = request_json['marital-status']
+			
+		if request_json["occupation"]:
+			benefits = request_json['occupation']
+			
+		if request_json["relationship"]:
+			benefits = request_json['relationship']
+			
+		if request_json["race"]:
+			benefits = request_json['race']
+			
+		if request_json["sex"]:
+			benefits = request_json['sex']
+			
+		if request_json["capital-gain"]:
+			benefits = request_json['capital-gain']
+			
+		if request_json["capital-loss"]:
+			benefits = request_json['capital-loss']
+			
+		if request_json["hours-per-week"]:
+			benefits = request_json['hours-per-week']
+			
+		if request_json["native-country"]:
+			benefits = request_json['native-country']
+			
+		logger.info(f'{dt} Data: age={age}, workclass={workclass}, fnlwgt={fnlwgt}, education={education}, education-num={education-num}, 
+			    marital-status={marital-status}, occupation={occupation}, relationship={relationship}, race={race}, sex={sex}, capital-gain={capital-gain}, 
+			    capital-loss={capital-loss}, hours-per-week={hours-per-week}, native-country={native-country}')
 		try:
-			preds = model.predict_proba(pd.DataFrame({"description": [description],
-												  "company_profile": [company_profile],
-												  "benefits": [benefits]}))
+			preds = model.predict(pd.DataFrame({"age": [age], "workclass": [workclass], "fnlwgt": [fnlwgt], "education": [education], 
+							    "education-num": [education-num], "marital-status": [marital-status], "occupation": [occupation], 
+							    "relationship": [relationship], "race": [race], "sex": [sex], "capital-gain": [capital-gain], 
+							    "capital-loss": [capital-loss], "hours-per-week": [hours-per-week], "native-country": [native-country]}))
 		except AttributeError as e:
 			logger.warning(f'{dt} Exception: {str(e)}')
 			data['predictions'] = str(e)
