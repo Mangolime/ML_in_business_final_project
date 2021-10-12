@@ -106,7 +106,7 @@ def predict():
 			data['success'] = False
 			return flask.jsonify(data)
 
-		data["predictions"] = preds[:, 1][0]
+		data["predictions"] = preds
 		# indicate that the request was a success
 		data["success"] = True
 
@@ -120,15 +120,3 @@ if __name__ == "__main__":
 		"please wait until server has fully started"))
 	port = int(os.environ.get('PORT', 8180))
 	app.run(host='0.0.0.0', debug=True, port=port)
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
