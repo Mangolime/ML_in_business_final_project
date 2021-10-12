@@ -34,7 +34,7 @@ API: flask
 ```
 $ git clone https://github.com/Mangolime/ML_in_business_final_project.git
 $ cd ML_in_business_final_project
-$ docker build -t Mangolime/ML_in_business_final_project .
+$ docker build -t ml_in_business_final_project .
 ```
 
 ### Запускаем контейнер
