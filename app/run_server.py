@@ -1,6 +1,4 @@
 # USAGE
-# Start the server:
-# 	python run_front_server.py
 # Submit a request via Python:
 #	python simple_request.py
 
@@ -9,7 +7,6 @@ import dill
 import pandas as pd
 import os
 dill._dill._reverse_typemap['ClassType'] = type
-#import cloudpickle
 import flask
 import logging
 from logging.handlers import RotatingFileHandler
