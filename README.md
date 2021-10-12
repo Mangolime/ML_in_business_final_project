@@ -33,7 +33,7 @@ API: flask
 ### Клонируем репозиторий и создаем образ
 ```
 $ git clone https://github.com/Mangolime/ML_in_business_final_project.git
-$ cd Mangolime/ML_in_business_final_project
+$ cd ML_in_business_final_project
 $ docker build -t Mangolime/ML_in_business_final_project .
 ```
 
